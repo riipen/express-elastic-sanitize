@@ -1,6 +1,6 @@
 {
   "name": "express-elastic-sanitize",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Elasticsearch input sanitizer for Express",
   "main": "build/index.js",
   "scripts": {
@@ -33,7 +33,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "6.24.1",
     "babel-preset-es2015": "6.24.1",
     "chai": "4.1.0",
-    "eslint": "4.2.0",
+    "eslint": "3.19.0",
     "eslint-config-airbnb-base": "11.2.0",
     "eslint-plugin-import": "2.7.0",
     "mocha": "3.4.2"
