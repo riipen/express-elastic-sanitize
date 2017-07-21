@@ -31,7 +31,9 @@ const sanitizeValue = (value) => {
  *
  * @return {Boolean}        Always returns true.
  */
-const sanitizeObject = (object = {}) => {
+const sanitizeObject = (object) => {
+  if (!object) return null;
+
   // Sanitize all key value pairs of the object
   Object.keys(object).map((key) => {
     // eslint-disable-next-line no-param-reassign
