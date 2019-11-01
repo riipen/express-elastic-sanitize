@@ -1,8 +1,10 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
+
 /**
  * Sanitizes a single given value.
  *
@@ -10,25 +12,17 @@ Object.defineProperty(exports, "__esModule", {
  *
  * @return {String}       The sanitized version of the value.
  */
-const sanitizeValue = value => {
+var sanitizeValue = function sanitizeValue(value) {
   // Non string types don't need to be sanitized
   if (typeof value !== 'string') return value;
-
-  return value
-  // Replace single character special characters
-  .replace(/[*+\-=~><"?^${}():!/[\]\\\s]/g, '\\$&')
-  // replace ||
-  .replace(/\|\|/g, '\\||')
-  // replace &&
-  .replace(/&&/g, '\\&&')
-  // replace AND
-  .replace(/AND/g, '\\A\\N\\D')
-  // replace OR
-  .replace(/OR/g, '\\O\\R')
-  // replace NOT
+  return value // Replace single character special characters
+  .replace(/[*+\-=~><"?^${}():!/[\]\\\s]/g, '\\$&') // replace ||
+  .replace(/\|\|/g, '\\||') // replace &&
+  .replace(/&&/g, '\\&&') // replace AND
+  .replace(/AND/g, '\\A\\N\\D') // replace OR
+  .replace(/OR/g, '\\O\\R') // replace NOT
   .replace(/NOT/g, '\\N\\O\\T');
 };
-
 /**
  * Sanitizes a whole object of key value pairs.
  *
@@ -36,17 +30,18 @@ const sanitizeValue = value => {
  *
  * @return {Boolean}        Always returns true.
  */
-const sanitizeObject = (object = {}) => {
-  // Sanitize all key value pairs of the object
-  Object.keys(object).map(key => {
+
+
+var sanitizeObject = function sanitizeObject(object) {
+  if (!object) return null; // Sanitize all key value pairs of the object
+
+  Object.keys(object).map(function (key) {
     // eslint-disable-next-line no-param-reassign
     object[key] = sanitizeValue(object[key]);
     return null;
   });
-
   return object;
 };
-
 /**
  * An Express middleware which sanitizes all parameter types for elasticsearch.
  *
@@ -54,16 +49,17 @@ const sanitizeObject = (object = {}) => {
  * @param  {Object}   res  The Express response object.
  * @param  {Function} next The Express next function.
  */
-const sanitize = (req, res, next) => {
-  const PARAM_TYPES = ['body', 'params', 'query'];
 
-  // Sanitize all param types
-  PARAM_TYPES.map(type => {
+
+var sanitize = function sanitize(req, res, next) {
+  var PARAM_TYPES = ['body', 'params', 'query']; // Sanitize all param types
+
+  PARAM_TYPES.map(function (type) {
     sanitizeObject(req[type]);
     return null;
   });
-
   return next();
 };
 
-exports.default = sanitize;
+var _default = sanitize;
+exports["default"] = _default;

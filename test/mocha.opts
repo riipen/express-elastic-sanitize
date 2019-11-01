@@ -1,0 +1,3 @@
+--exit
+--recursive
+--require @babel/register
