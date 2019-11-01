@@ -1,6 +1,6 @@
 {
   "name": "express-elastic-sanitize",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Elasticsearch input sanitizer for Express",
   "main": "build/index.js",
   "engines": {
