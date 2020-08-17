@@ -1,7 +1,5 @@
 # express-elastic-sanitize
 
-[![Circle CI](https://circleci.com/gh/riipen/express-elastic-sanitize.svg?style=svg)](https://circleci.com/gh/riipen/express-elastic-sanitize)
-
 [![npm install --save express-elastic-sanitize](https://nodei.co/npm/express-elastic-sanitize.png)](https://npmjs.org/package/express-elastic-sanitize)
 
 A sanitization middleware for Express targeting Elasticsearch.
